@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="4904" started-at="2018-04-17T08:17:25Z" finished-at="2018-04-17T08:17:29Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="4904" started-at="2018-04-17T08:17:25Z" finished-at="2018-04-17T08:17:29Z">
+      <class name="com.qa.test.GetTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.qa.test.GetTest@2d6a9952]" name="setup" is-config="true" duration-ms="5" started-at="2018-04-17T13:47:25Z" finished-at="2018-04-17T13:47:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verifyuserInfo()[pri:0, instance:com.qa.test.GetTest@2d6a9952]" name="verifyuserInfo" duration-ms="4884" started-at="2018-04-17T13:47:25Z" finished-at="2018-04-17T13:47:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyuserInfo -->
+      </class> <!-- com.qa.test.GetTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
