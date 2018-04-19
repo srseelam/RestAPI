@@ -72,7 +72,7 @@ public class RestClient {
 		}
 		
 		// DELETE method
-		public CloseableHttpResponse delete(String url, String stringEntity, HashMap<String, String> headerMap)
+		public CloseableHttpResponse delete(String url, HashMap<String, String> headerMap)
 				throws ClientProtocolException, IOException {
 
 			CloseableHttpClient httpClient = HttpClients.createDefault();//Create default client
@@ -80,8 +80,8 @@ public class RestClient {
 			for (Entry<String, String> entry : headerMap.entrySet()) {
 				httpDelete.addHeader(entry.getKey(), entry.getValue());//add headers
 			}
-			//httpDelete.setEntity(new StringEntity(stringEntity));//Add body
 			CloseableHttpResponse httpResponse = httpClient.execute(httpDelete); //add body to post request
+			System.out.println("httpResponse--->" + httpResponse);
 			return httpResponse; //return http response
 			
 		}

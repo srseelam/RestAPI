@@ -63,7 +63,6 @@ public class GetTest extends AbstractClass {
 	public void getResponseWithHeader() throws ClientProtocolException, IOException{
 		HashMap<String, String> headerMap = new HashMap<String, String>();
 		client = new RestClient();
-		httpResponse = client.get(serviceUrl+apiUrl);
 		headerMap.put("Content-Type" , "application/json");
 		
 		httpResponse = client.get(serviceUrl+apiUrl, headerMap);
