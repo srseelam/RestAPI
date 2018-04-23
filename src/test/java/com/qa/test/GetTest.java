@@ -17,15 +17,13 @@ import com.qa.utility.Library;
 public class GetTest extends AbstractClass {
 	AbstractClass base;
 	RestClient client;
-	String serviceUrl;
-	String apiUrl;
+	String url;
 	CloseableHttpResponse httpResponse;
 	
 	@BeforeMethod
 	public void setup() {
 		base = new AbstractClass();
-		serviceUrl = prop.getProperty("url");
-		apiUrl = prop.getProperty("apiUrl");
+		url = prop.getProperty("baseUrl") + prop.getProperty("getUrl");
 
 	}
 
@@ -33,7 +31,7 @@ public class GetTest extends AbstractClass {
 	@Test
 	public void verifyuserInfo() throws ClientProtocolException, IOException {
 		client = new RestClient();
-		httpResponse = client.get(serviceUrl+apiUrl);
+		httpResponse = client.get(url);
 		
 		int statusCode = httpResponse.getStatusLine().getStatusCode();
 		System.out.println("Status code---->" + statusCode);
@@ -65,7 +63,7 @@ public class GetTest extends AbstractClass {
 		client = new RestClient();
 		headerMap.put("Content-Type" , "application/json");
 		
-		httpResponse = client.get(serviceUrl+apiUrl, headerMap);
+		httpResponse = client.get(url, headerMap);
 		
 		int statusCode = httpResponse.getStatusLine().getStatusCode();
 		System.out.println("Status code---->" + statusCode);

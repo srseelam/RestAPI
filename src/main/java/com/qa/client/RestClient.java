@@ -81,7 +81,6 @@ public class RestClient {
 				httpDelete.addHeader(entry.getKey(), entry.getValue());//add headers
 			}
 			CloseableHttpResponse httpResponse = httpClient.execute(httpDelete); //add body to post request
-			System.out.println("httpResponse--->" + httpResponse);
 			return httpResponse; //return http response
 			
 		}

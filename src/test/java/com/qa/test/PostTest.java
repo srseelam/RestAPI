@@ -31,7 +31,7 @@ public class PostTest extends AbstractClass {
 	@BeforeMethod
 	public void setup() {
 		base = new AbstractClass();
-		url = prop.getProperty("url") + prop.getProperty("apiUrl");
+		url = prop.getProperty("baseUrl") + prop.getProperty("postUrl");
 	}
 
 	//Assertion using the user class object
