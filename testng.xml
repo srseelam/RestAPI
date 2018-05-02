@@ -2,8 +2,7 @@
 <suite name="example suite 1" verbose="1" >
   <test name="Regression suite 1" >
     <packages>
-      <package name="com.qa.test.*"/>
-          
+      <package name="com.qa.test.*"/>      
     </packages>
  </test>
 </suite>
