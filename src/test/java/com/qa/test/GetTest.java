@@ -60,7 +60,7 @@ public class GetTest extends AbstractClass {
 
 	// Test case with headers
 	@Test
-	public void getResponseWithHeader() throws ClientProtocolException, IOException {
+	public void getResponseWithInternalData() throws ClientProtocolException, IOException {
 		HashMap<String, String> headerMap = new HashMap<String, String>();
 		client = new RestClient();
 		headerMap.put("Content-Type", "application/json");
@@ -73,7 +73,6 @@ public class GetTest extends AbstractClass {
 		JSONObject jsonBody = new JSONObject(stringBody);
 		System.out.println("Json Body ---->" + jsonBody);
 
-	
 		String totalValue = Library.getValueOfJSON(jsonBody, "/total");
 		System.out.println("Value of total is ---->" + totalValue);
 
@@ -88,32 +87,42 @@ public class GetTest extends AbstractClass {
 		System.out.println("Value of avatar ---> " + avatar);
 
 	}
-	
+
 	@Test
-	public void parseTheJSON() throws ClientProtocolException, IOException{
-		
+	public void printJsonValueBasedOnKey() throws ClientProtocolException, IOException {
+
 		HashMap<String, String> headerMap = new HashMap<String, String>();
 		client = new RestClient();
 		headerMap.put("Content-Type", "application/json");
 
 		httpResponse = client.get(url, headerMap);
 
-		
 		String stringBody = EntityUtils.toString(httpResponse.getEntity());
 		JSONObject jsonBody = new JSONObject(stringBody);
-		System.out.println("Json Body ---->" + jsonBody);
-		
-		
-		System.out.println("=======================================");
-		System.out.println("Json value = " + jsonBody.get("total"));
-		JSONArray obj;
-		obj = jsonBody.getJSONArray("data");
-		for (int i = 0; i < obj.length(); i++) {
-			System.out.println("json arry = " + obj.getJSONObject(i));
-		}
-		
-		System.out.println("===========================================");
-		
 
+		String total = Library.getJSONValueBasedOnKey(jsonBody, "total");
+		System.out.println("Total value from JSON = " + total);
+
+	}
+	
+	@Test
+	public void printJsonArray() throws ClientProtocolException, IOException {
+
+		HashMap<String, String> headerMap = new HashMap<String, String>();
+		client = new RestClient();
+		headerMap.put("Content-Type", "application/json");
+
+		httpResponse = client.get(url, headerMap);
+
+		String stringBody = EntityUtils.toString(httpResponse.getEntity());
+		JSONObject jsonBody = new JSONObject(stringBody);
+
+		
+		JSONObject secondRecod = (JSONObject) Library.getJSONArryForIndex(jsonBody, "data", 1);
+		System.out.println("Second record in the JSON = " + secondRecod);
+		System.out.println("id = " + secondRecod.getInt("id"));
+		System.out.println("First Name = " + secondRecod.getString("first_name"));
+		System.out.println("Last Name = " + secondRecod.getString("last_name"));
+		System.out.println("avatar = " + secondRecod.getString("avatar"));
 	}
 }
